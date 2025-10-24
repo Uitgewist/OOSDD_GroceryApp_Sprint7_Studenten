@@ -43,6 +43,8 @@ namespace Grocery.App
             builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
             builder.Services.AddSingleton<IProductCategoryRepository, ProductCategoryRepository>();
             builder.Services.AddSingleton<GlobalViewModel>();
+            builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+            builder.Services.AddSingleton<IDiscountService, DiscountService>();
 
             builder.Services.AddTransient<GroceryListsView>().AddTransient<GroceryListViewModel>();
             builder.Services.AddTransient<GroceryListItemsView>().AddTransient<GroceryListItemsViewModel>();
@@ -53,6 +55,8 @@ namespace Grocery.App
             builder.Services.AddTransient<BoughtProductsView>().AddTransient<BoughtProductsViewModel>();
             builder.Services.AddTransient<CategoriesView>().AddTransient<CategoriesViewModel>();
             builder.Services.AddTransient<ProductCategoriesView>().AddTransient<ProductCategoriesViewModel>();
+            builder.Services.AddTransient<DiscountView>().AddTransient<DiscountViewModel>();
+
             return builder.Build();
         }
     }
