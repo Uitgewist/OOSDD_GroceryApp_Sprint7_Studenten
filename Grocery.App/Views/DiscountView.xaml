@@ -1,0 +1,32 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grocery.App.ViewModels"
+             x:Class="Grocery.App.Views.DiscountView">
+
+
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Today's Offer!" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label Text="{Binding TodayDiscount.Product.Name}" FontSize="20" HorizontalOptions="Center" />
+        <Label Text="{Binding TodayDiscount.DiscountPercentage, StringFormat='Discount: {0}%'}" 
+               FontSize="18" 
+               HorizontalOptions="Center" 
+               TextColor="Red"/>
+        <Label Text="{Binding TodayDiscount.Product.Price, StringFormat='Price: €{0:F2}'}"
+               FontSize="18" 
+               HorizontalOptions="Center" 
+               TextColor="Green"/>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding TodayDiscount.Product.BasePrice, StringFormat='€{0:F2}'}" TextDecorations="Strikethrough" />
+                    <Span Text=" " />
+                    <Span Text="{Binding TodayDiscount.Product.Price, StringFormat='€{0:F2}'}" TextColor="Green"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+
+    </VerticalStackLayout>
+</ContentPage>
